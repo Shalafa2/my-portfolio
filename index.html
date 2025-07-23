@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shalafa | my portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4a9e4e8a53.js" crossorigin="anonymous"></script>
+  <style>
+    /* Reset and Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  background: #f1eded;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  color: rgb(0, 0, 0);
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #1e0404;
+  font-weight: 600;
+  transition: 0.3s;
+  padding: 8px 18px;
+  border-radius: 7px;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #d4af37;
+  width: 0;
+  transition: 0.3s;
+  margin-top: 2px;
+}
+.nav-links a:hover, .nav-links a:focus {
+  color: #8b3f25;
+  background: #f8e7c9;
+}
+.nav-links a:hover::after, .nav-links a:focus::after {
+  width: 70%;
+}
+
+/* Hero Section */
+.hero {
+  height: 650px;
+  background: url('./images/WhatsApp.jpeg') center/cover no-repeat;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 4, 4, 0.40);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero-content h1 {
+  font-size: 3.2rem;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  font-family: 'Playfair Display', serif;
+}
+.hero-content span {
+  color: #d4af37;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+.btn {
+  background: #d4af37;
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 8px rgba(212,175,55,0.15);
+}
+.btn:hover {
+  background: #a17f49;
+  transform: scale(1.05);
+}
+
+/* About Section */
+.about .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 100px 40px;
+  gap: 40px;
+}
+.about-img img {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 14px;
+  box-shadow: 0 5px 24px rgba(0,0,0,0.14);
+  border: 4px solid #fff4c7;
+}
+.about-text {
+  max-width: 500px;
+  padding: 20px;
+  background: #fffdf4;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(212,175,55,0.06);
+}
+.about-text h2 {
+  color: #d4af37;
+}
+.about-text p {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #423d3d;
+  margin-bottom: 18px;
+}
+.about-buttons {
+  display: flex;
+  gap: 13px;
+  margin-top: 8px;
+}
+.about-btn {
+  padding: 10px 24px;
+  background: #fff3c2;
+  color: #a17f49;
+  border: none;
+  border-radius: 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  box-shadow: 0 2px 7px rgba(212,175,55,0.07);
+}
+.about-btn.secondary {
+  background: #d4af37;
+  color: #fff;
+}
+.about-btn:hover, .about-btn.secondary:hover {
+  background: #8b3f25;
+  color: #fff3c2;
+}
+
+/* Skills Section */
+.skills {
+  background: #f8f8f8;
+  padding: 100px 40px;
+  text-align: center;
+}
+.skills h2 {
+  color: #d4af37;
+}
+.skill-bars {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.skill {
+  margin-bottom: 32px;
+}
+.skill-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.skill-info h3 {
+  font-size: 1.09rem;
+  font-weight: 700;
+  color: #a17f49;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
+}
+.skill-info span {
+  font-size: 0.98rem;
+  background: #fff7e0;
+  color: #a17f49;
+  padding: 2px 15px;
+  border-radius: 1em;
+  font-weight: 700;
+}
+.bar {
+  background: #ddd;
+  border-radius: 30px;
+  overflow: hidden;
+  height: 18px;
+}
+.fill {
+  height: 18px;
+  background: linear-gradient(90deg, #d4af37 60%, #8b3f25 100%);
+  width: 0;
+  animation: fillBar 2s ease-in-out forwards;
+  border-radius: 30px;
+}
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--skill-width, 100%); }
+}
+
+/* Skill Bar Animation on Scroll */
+.skill .fill {
+  width: var(--skill-width, 0);
+  animation: fillBar 2s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+/* Contact Section */
+.contact {
+  padding: 100px 40px;
+  text-align: center;
+  background: #fffdf4;
+}
+.contact h2 {
+  color: #d4af37;
+}
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px 28px;
+  box-shadow: 0 2px 11px rgba(212,175,55,0.07);
+}
+.contact-form input, .contact-form textarea {
+  padding: 14px;
+  font-size: 1rem;
+  border: 1.5px solid #d4af37;
+  border-radius: 8px;
+  background: #fffdf4;
+  transition: border 0.2s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #8b3f25;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 90px;
+  max-height: 250px;
+}
+.contact-form button {
+  background: #d4af37;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: bold;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 7px rgba(212,175,55,0.12);
+}
+.contact-form button:hover {
+  background: #8b3f25;
+}
+
+/* Contact Social */
+.contact-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+.contact-social a {
+  color: #d4af37;
+  font-size: 1.7rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.contact-social a:hover {
+  color: #8b3f25;
+  transform: scale(1.11) rotate(-10deg);
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.08rem;
+  letter-spacing: 0.2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about .container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 60px 20px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+  }
+  .about .container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 8px;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .skills, .contact {
+    padding: 50px 8px;
+  }
+}
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  .navbar {
+    padding: 12px 2vw;
+  }
+  .hero {
+    height: 380px;
+    padding: 0;
+  }
+  .about-img img {
+    max-width: 200px;
+  }
+  .about-text {
+    padding: 10px;
+  }
+  .skills, .contact {
+    padding: 25px 4px;
+  }
+  .contact-form {
+    padding: 12px 7px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">shalafa shereef</div>
+      <ul class="nav-links">
+        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO / HOME SECTION -->
+  <section id="home" class="section hero">
+    <div class="hero-content">
+      <h1>Hello, I'm <span>shalafa</span></h1>
+      <p class="hero-subtitle">Creative Web Designer & Developer</p>
+      <a href="#contact" class="btn hero-btn">Hire Me</a>
+    </div>
+    <div class="hero-bg-graphic"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container about-container">
+      <div class="about-img">
+        <img src="./images/laptop.jpg" alt="Your Photo" height="300" width="500">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hi, I'm Shalafa!<br>
+        A self-taught web developer with a strong passion for building clean, responsive, and user-friendly websites. I may be early in my journey, but I'm constantly learning and pushing myself to improve with every project. From writing HTML, CSS, and JavaScript to exploring frameworks like React, I enjoy turning ideas into interactive digital experiences. My portfolio showcases what I’ve learned so far and reflects my dedication to growth, creativity, and problem-solving. I'm excited to keep learning and bring fresh energy to every new challenge I take on.
+        </p>
+        <div class="about-buttons">
+          <a href="#skills" class="btn about-btn">View Skills</a>
+          <a href="#contact" class="btn about-btn secondary">Let's Connect</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section skills">
+    <h2>My Skills</h2>
+    <div class="skill-bars">
+      <div class="skill">
+        <div class="skill-info">
+          <h3><i class="fab fa-html5"></i> HTML</h3>
+          <span>80%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-info">
+          <h3><i class="fab fa-js"></i> JavaScript</h3>
+          <span>60%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 60%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-info">
+          <h3><i class="fab fa-css3-alt"></i> CSS</h3>
+          <span>70%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-info">
+          <h3><i class="fab fa-python"></i> Python</h3>
+          <span>85%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-info">
+          <h3><i class="fas fa-database"></i> SQL</h3>
+          <span>75%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-info">
+          <h3><i class="fab fa-java"></i> Java</h3>
+          <span>80%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+      </div>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn contact-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+    <div class="contact-social">
+      <a href="mailto:your@email.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <!-- Add more social links as needed -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 shalafa &mdash; Designed with <span style="color: #EF476F;">&hearts;</span> & elegance.</p>
+  </footer>
+
+</body>
+</html>
